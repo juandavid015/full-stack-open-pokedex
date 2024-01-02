@@ -42,7 +42,7 @@ jobs:
       steps: 
         - uses: actions/checkout@v3
         - name: Bump version and push tag # versioning
-          uses: anothrNick/github-tag-action@1.67.0 # third-party for versioning. Automatically increase (bump) the version when a pull request is merged into the main branch and tag the release with the version number
+          uses: anothrNick/github-tag-action@a2c70ae13a881faf2b4953baaa9e49731997ab36 # third-party for versioning. Automatically increase (bump) the version when a pull request is merged into the main branch and tag the release with the version number
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             DEFAULT_BUMP: patch
