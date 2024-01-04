@@ -19,16 +19,9 @@ primary_region = "iad"
 [processes]
   app = "node app.js"
 
-[http_service]
-  internal_port = 8080
-  force_https = true
-  auto_stop_machines = true
-  auto_start_machines = true
-  min_machines_running = 0
-  processes = ["app"]
-
 [[services]]
   protocol = "tcp"
+  force_https = true
   internal_port = 8080
   auto_stop_machines = true
   auto_start_machines = true
@@ -38,16 +31,16 @@ primary_region = "iad"
   [[services.tcp_checks]]
     interval = "15s"
     timeout = "2s"
-    grace_period = "1s"
+    grace_period = "5s"
 
   [[services.http_checks]]
-    interval = "10s"
+    interval = "15s"
     timeout = "2s"
     grace_period = "5s"
     method = "get"
     path = "/health"
     protocol = "http"
-    tls_skip_verify = false
+    tls_skip_verify = true
 
 [[vm]]
   cpu_kind = "shared"
